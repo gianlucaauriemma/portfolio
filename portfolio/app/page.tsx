@@ -15,6 +15,8 @@ import {
   Globe,
   FileText,
   Check,
+  Download,
+  Plane,
 } from "lucide-react";
 
 // --- TYPES ---
@@ -43,7 +45,7 @@ const translations = {
       background_role: "Web Developer",
       background_period: "Past",
       background_desc:
-        "Gained solid experience in web technologies, teamwork, and software development lifecycles before transitioning to mobile development.",
+        "Leveraging a versatile background in full-stack web development (React, Vue, Angular, Java, Python), I bring a holistic approach to software engineering. My experience in building complex systems and mastering development lifecycles now drives my passion for creating intuitive, high-performance iOS applications using Swift, SwiftUI, and advanced frameworks like CloudKit and SwiftData.",
       tech_stack: "Tech Stack",
     },
     projects: {
@@ -60,7 +62,7 @@ const translations = {
         title: "Write It!",
         description:
           "A habit planner app that helps users build and maintain a productive routine through structured tracking and reminders.",
-        tags: ["SwiftUI", "CoreData", "Notifications"],
+        tags: ["SwiftUI", "SwiftData", "Notifications"],
       },
       empathy: {
         title: "Empathy",
@@ -86,7 +88,7 @@ const translations = {
     hero: {
       available: "Disponibile per nuovi progetti",
       role: "Junior iOS Developer",
-      tagline: "Sviluppatore iOS | Appassionato di Swift & SwiftUI",
+      tagline: "Sviluppatore iOS | Appassionato di Swift & SwiftUI | Web Developer",
       cta_contact: "Contattami",
       cta_work: "I Miei Lavori",
     },
@@ -97,7 +99,7 @@ const translations = {
       background_role: "Sviluppatore Web",
       background_period: "Passato",
       background_desc:
-        "Ho acquisito solida esperienza nelle tecnologie web, nel lavoro di squadra e nei cicli di vita dello sviluppo software prima di passare allo sviluppo mobile.",
+        "Sfruttando un background versatile nello sviluppo web full-stack (React, Vue, Angular, Java, Python), porto un approccio olistico all'ingegneria del software. La mia esperienza nella costruzione di sistemi complessi e la padronanza dei cicli di sviluppo guidano ora la mia passione per la creazione di applicazioni iOS intuitive e performanti utilizzando Swift, SwiftUI e framework avanzati come CloudKit e SwiftData.",
       tech_stack: "Competenze Tecniche",
     },
     projects: {
@@ -105,16 +107,18 @@ const translations = {
       iNote: {
         description:
           "Un'app per prendere appunti completamente funzionale che replica l'interfaccia utente di Apple Notes. Creata per padroneggiare le integrazioni di PencilKit e Scribble API.",
+        tags: ["SwiftUI", "SwiftData", "PencilKit", "ScribbleAPI"],
       },
       tequila: {
         description:
           "Un'app selettore di drink sociale con un database di cocktail e mini-giochi in-app per divertirsi con gli amici.",
+        tags: ["SwiftUI", "SwiftData", "UserDefaults", "Game Logic"],
       },
       writeIt: {
         title: "Write It!",
         description:
           "Un pianificatore di abitudini che aiuta gli utenti a costruire e mantenere una routine produttiva attraverso tracciamento strutturato e promemoria.",
-        tags: ["SwiftUI", "CoreData", "Notifications"],
+        tags: ["SwiftUI", "SwiftData", "CloudKit", "Notifications"],
       },
       empathy: {
         title: "Empathy",
@@ -165,13 +169,16 @@ const getPortfolioData = (lang: Language) => {
         title: t.projects.writeIt.title,
         description: t.projects.writeIt.description,
         tags: t.projects.writeIt.tags,
-        link: "#", // Add link if available
+        link: "#",
+        // testflight: "#",
+        // appStore: "https://apps.apple.com/",
       },
       {
         title: t.projects.empathy.title,
         description: t.projects.empathy.description,
         tags: t.projects.empathy.tags,
-        link: "#", // Add link if available
+        link: "#",
+        // testflight: "#",
       },
       {
         title: "iNote",
@@ -179,12 +186,12 @@ const getPortfolioData = (lang: Language) => {
         tags: ["SwiftUI", "SwiftData", "PencilKit", "ScribbleAPI"],
         link: "https://github.com/gianlucaauriemma/iNote.git",
       },
-      {
-        title: "Tequila",
-        description: t.projects.tequila.description,
-        tags: ["SwiftUI", "UserDefaults", "Game Logic"],
-        link: "https://github.com/gianlucaauriemma/Tequila.git",
-      },
+      // {
+      //   title: "Tequila",
+      //   description: t.projects.tequila.description,
+      //   tags: ["SwiftUI", "UserDefaults", "Game Logic"],
+      //   link: "https://github.com/gianlucaauriemma/Tequila.git",
+      // },
     ],
   };
 };
@@ -471,7 +478,8 @@ export default function Portfolio() {
       <Section id="projects">
         <h2 className="text-3xl font-bold mb-12">{t.projects.title}</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {data.projects.map((project, index) => (
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {data.projects.map((project: any, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -485,16 +493,41 @@ export default function Portfolio() {
                     <div className="p-3 bg-black/5 dark:bg-white/10 rounded-xl">
                       <Smartphone size={24} />
                     </div>
-                    {project.link !== "#" && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
+                    <div className="flex gap-2">
+                      {project.testflight && (
+                        <a
+                          href={project.testflight}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-blue-500 hover:text-white transition-all opacity-0 group-hover:opacity-100"
+                          title="TestFlight"
+                        >
+                          <Plane size={18} />
+                        </a>
+                      )}
+                      {project.appStore && (
+                        <a
+                          href={project.appStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-blue-600 hover:text-white transition-all opacity-0 group-hover:opacity-100"
+                          title="App Store"
+                        >
+                          <Download size={18} />
+                        </a>
+                      )}
+                      {project.link !== "#" && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/80 dark:hover:bg-white/80 transition-all opacity-0 group-hover:opacity-100"
+                          title="GitHub"
+                        >
+                          <ExternalLink size={18} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -502,7 +535,8 @@ export default function Portfolio() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tags.map((tag, tIndex) => (
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {project.tags.map((tag: any, tIndex: any) => (
                     <Badge key={tIndex} text={tag} />
                   ))}
                 </div>
