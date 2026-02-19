@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: "export", // <--- Fondamentale per Altervista
+  output: "export", 
   images: {
-    unoptimized: true, // <--- Necessario per l'export statico
+    unoptimized: true, 
   },
 };
 
