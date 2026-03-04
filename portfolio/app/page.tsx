@@ -34,7 +34,7 @@ const translations = {
     hero: {
       available: "Available for work",
       role: "Junior iOS Developer",
-      tagline: "iOS Developer | Swift & SwiftUI Enthusiast",
+      tagline: "iOS Developer | Swift & SwiftUI Enthusiast | Web Developer",
       cta_contact: "Contact Me",
       cta_work: "View Work",
     },
