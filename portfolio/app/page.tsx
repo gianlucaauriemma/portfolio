@@ -50,7 +50,8 @@ const translations = {
           title: "Write It!",
           tags: ["SwiftUI", "SwiftData", "CloudKit", "Notifications"],
           description: "A habit planner app that helps users build and maintain a productive routine through structured tracking and reminders.",
-          testflight: "https://testflight.apple.com/join/ZBgw3Wmq",
+          // testflight: "https://testflight.apple.com/join/ZBgw3Wmq",
+          appStore: "https://apps.apple.com/it/app/write-it/id6758155251?l=en-GB"
         },
         {
           id: "02",
