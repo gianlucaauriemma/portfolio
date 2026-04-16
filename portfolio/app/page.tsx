@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Mail, Globe, Check, FileText } from "lucide-react";
+import { SiBluesky } from '@icons-pack/react-simple-icons';
 
 type Language = "en" | "it";
 
@@ -245,7 +246,7 @@ export default function Portfolio() {
   }, []);
 
   const t = translations[lang];
-  const cvLink = lang === "en" ? "/Auriemma_Gianluca_Translation.pdf" : "/Auriemma_Gianluca_Curriculum.pdf";
+  const cvLink = lang === "en" ? "/Gianluca_Auriemma_Curriculum_2025_ENG.pdf" : "/Gianluca_Auriemma_Curriculum_2025_ITA.pdf";
 
   return (
     <main
@@ -374,12 +375,6 @@ export default function Portfolio() {
           >
             Gianluca Auriemma
           </p>
-        </div>
-
-        <div className="flex justify-between text-[9px] uppercase tracking-widest text-white/20 border-t border-white/10 py-3">
-          <span>© GIANLUCA AURIEMMA</span>
-          <span>(GA — 02)</span>
-          <span className="hidden sm:block">DIGITAL DESIGN</span>
         </div>
       </section>
 
@@ -606,6 +601,10 @@ export default function Portfolio() {
             <a href="https://github.com/gianlucaauriemma" target="_blank" rel="noopener noreferrer"
               className="p-3 border border-white/15 rounded-full hover:border-white transition-colors">
               <Github size={16} />
+            </a>
+            <a href="https://bsky.app/profile/gianlucaauriemma.bsky.social" target="_blank" rel="noopener noreferrer"
+              className="p-3 border border-white/15 rounded-full hover:border-white transition-colors">
+              <SiBluesky size={16} />
             </a>
             <a href="mailto:gianluca.auriemma4@gmail.com"
               className="p-3 border border-white/15 rounded-full hover:border-white transition-colors">
