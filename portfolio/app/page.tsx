@@ -74,7 +74,7 @@ export default function HomePage() {
                     className="font-display italic leading-[0.9]"
                     style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
                   >
-                    Hello.
+                    Hello World.
                   </span>
                 </div>
               </div>
@@ -409,7 +409,10 @@ export default function HomePage() {
           style={{ backgroundColor: "#e8331a", borderColor: "#1a1410" }}
         >
           {/* Top meta bar */}
-          <div className="grid grid-cols-12 border-b-2" style={{ borderColor: "#1a1410" }}>
+          <div
+            className="grid grid-cols-12 border-b-2"
+            style={{ borderColor: "#1a1410" }}
+          >
             <div className="col-span-6 p-4 md:p-5 font-mono text-[10px] uppercase tracking-[0.25em]">
               ✦ {ui.contact.eyebrow[lang]}
             </div>
@@ -422,7 +425,10 @@ export default function HomePage() {
           </div>
 
           {/* Title */}
-          <div className="p-6 md:p-12 lg:p-16 border-b-2" style={{ borderColor: "#1a1410" }}>
+          <div
+            className="p-6 md:p-12 lg:p-16 border-b-2"
+            style={{ borderColor: "#1a1410" }}
+          >
             <h2
               className="font-display leading-[0.85] tracking-tight"
               style={{ fontSize: "clamp(3rem, 11vw, 11rem)" }}

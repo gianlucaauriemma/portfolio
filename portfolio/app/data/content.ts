@@ -194,7 +194,10 @@ export const projects: Project[] = [
     status: "in-progress",
     platforms: ["macOS"],
     stack: ["SwiftUI", "AppKit", "CryptoKit", "Virtualization", "Observation"],
-    links: { testflight: "https://testflight.apple.com/join/Kbqfs25r" },
+    links: {
+      appStore:
+        "https://apps.apple.com/us/app/trustme-disposable-sandbox/id6763646863",
+    },
     cover: "/projects/trustme/cover.png",
     accent: "magenta",
     shortDescription: {
