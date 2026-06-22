@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { SiBluesky } from "@icons-pack/react-simple-icons";
 
 import { Nav } from "./components/Nav";
@@ -21,250 +21,139 @@ export default function HomePage() {
     <main className="relative bg-bg text-fg overflow-x-hidden">
       <Nav />
 
-      {/* HERO — Swiss grid */}
-      <section className="relative pt-24 pb-10 px-4 md:px-6">
-        <article className="rounded-[28px] overflow-hidden border border-line-strong bg-card text-fg">
-          {/* Top meta bar */}
-          <div className="grid grid-cols-12 border-b border-line">
-            <div className="col-span-12 md:col-span-6 p-4 md:p-5 font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-              Gianluca Auriemma — Portfolio · {new Date().getFullYear()}
-            </div>
-            <div className="col-span-12 md:col-span-6 p-4 md:p-5 md:border-l border-t md:border-t-0 border-line flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ff5b1f] animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-                {ui.hero.available[lang]}
-              </span>
-            </div>
-          </div>
+      {/* HERO — straightforward */}
+      <section className="px-4 md:px-6 pt-32 md:pt-44 pb-16 md:pb-24">
+        <div className="flex items-center gap-2.5 mb-8">
+          <span className="w-2 h-2 rounded-full bg-[#ff5b1f] animate-pulse" />
+          <span className="text-sm text-fg-soft">{ui.hero.available[lang]}</span>
+        </div>
 
-          {/* Main row: name + side panel */}
-          <div className="grid grid-cols-12 min-h-[60svh] md:min-h-[68svh]">
-            {/* Name cell */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="col-span-12 md:col-span-8 p-6 md:p-12 lg:p-16 flex flex-col justify-end"
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display leading-[0.85] tracking-tight"
+          style={{ fontSize: "clamp(3.2rem, 12vw, 12rem)" }}
+        >
+          Gianluca{" "}
+          <span className="italic">
+            Auriemma<span className="text-[#ff5b1f]">.</span>
+          </span>
+        </motion.h1>
+
+        <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-8 items-end">
+          <p className="md:col-span-7 text-xl md:text-2xl leading-relaxed text-fg-soft">
+            {ui.hero.bio[lang]}
+          </p>
+          <div className="md:col-span-5 flex flex-wrap gap-3 md:justify-end">
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-fg text-bg text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              <h1
-                className="font-display leading-[0.82] tracking-tight"
-                style={{ fontSize: "clamp(3.5rem, 14vw, 14rem)" }}
-              >
-                Gianluca
-                <br />
-                <span className="italic">
-                  Auriemma<span className="text-[#ff5b1f]">.</span>
-                </span>
-              </h1>
-            </motion.div>
-
-            {/* Side panel */}
-            <div className="col-span-12 md:col-span-4 grid grid-rows-[auto_1fr_auto] md:border-l border-t md:border-t-0 border-line">
-              {/* Accent block */}
-              <div
-                className="relative aspect-[5/3] md:aspect-auto md:h-48 lg:h-56 border-b border-line overflow-hidden"
-                style={{ backgroundColor: "#ff5b1f" }}
-              >
-                <div className="absolute inset-0 grain opacity-50 pointer-events-none" />
-                <div className="relative h-full p-5 flex flex-col justify-between text-[#1a1410]">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-                    ✦ 2026
-                  </span>
-                  <span
-                    className="font-display italic leading-[0.9]"
-                    style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
-                  >
-                    Hello World.
-                  </span>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="p-5 md:p-6 border-b border-line"
-              >
-                <p className="text-sm md:text-base leading-snug">
-                  {ui.hero.bio[lang]}
-                </p>
-              </motion.div>
-
-              {/* Say hello CTA */}
-              <Link
-                href="#contact"
-                className="p-5 md:p-6 flex items-center justify-between gap-3 font-mono text-xs uppercase tracking-[0.25em] hover:bg-bg-alt transition-colors"
-              >
-                <span>{ui.hero.sayHi[lang]}</span>
-                <ArrowUpRight size={14} />
-              </Link>
-            </div>
-          </div>
-
-          {/* Footer row */}
-          <div className="grid grid-cols-12 border-t border-line">
-            <div className="col-span-12 md:col-span-5 p-4 md:p-5 font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-              {ui.hero.role[lang]}
-            </div>
-            <div className="col-span-12 md:col-span-4 p-4 md:p-5 md:border-l border-t md:border-t-0 border-line font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-              {ui.hero.based[lang]}
-            </div>
+              {ui.hero.seeWork[lang]} <ArrowUpRight size={16} />
+            </Link>
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-line-strong text-sm font-medium hover:bg-bg-alt transition-colors"
+            >
+              {ui.hero.sayHi[lang]}
+            </Link>
             <a
               href={cvLink}
               download
-              className="col-span-12 md:col-span-3 p-4 md:p-5 md:border-l border-t md:border-t-0 border-line flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.25em] hover:bg-bg-alt transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-line-strong text-sm font-medium hover:bg-bg-alt transition-colors"
             >
-              <span className="inline-flex items-center gap-2">
-                <Download size={12} /> {ui.hero.cv[lang]}
-              </span>
-              <ArrowUpRight size={12} />
+              <Download size={15} /> {ui.hero.cv[lang]}
             </a>
           </div>
-        </article>
+        </div>
       </section>
 
-      {/* WORK */}
-      <section id="work" className="px-4 md:px-6 pt-20 md:pt-28 pb-16">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute mb-3">
-              ✦ {ui.work.eyebrow[lang]} — 0{projects.length}
-            </div>
-            <h2
-              className="font-display leading-[0.9] tracking-tight"
-              style={{ fontSize: "clamp(2.6rem, 7vw, 6rem)" }}
-            >
-              {ui.work.title[lang]}
-            </h2>
-          </div>
-          <p className="text-fg-soft max-w-md leading-relaxed">
+      {/* WORK — editorial alternating rows, no boxes */}
+      <section id="work" className="px-4 md:px-6 pt-12 md:pt-20 pb-8">
+        <div className="max-w-3xl mb-14 md:mb-20">
+          <h2
+            className="font-display leading-[0.95] tracking-tight"
+            style={{ fontSize: "clamp(2.6rem, 7vw, 5.5rem)" }}
+          >
+            {ui.work.title[lang]}
+          </h2>
+          <p className="mt-5 text-lg text-fg-soft leading-relaxed max-w-xl">
             {ui.work.subtitle[lang]}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        <div className="flex flex-col gap-20 md:gap-32">
           {projects.map((p, i) => {
-            const span =
-              i === 0
-                ? "md:col-span-7"
-                : i === 1
-                  ? "md:col-span-5"
-                  : "md:col-span-12";
             const accentColor = {
               orange: "#ff5b1f",
               red: "#e8331a",
               yellow: "#ffc73a",
               magenta: "#ff3d88",
             }[p.accent];
-            const fallback = `/projects/${p.slug}/01.png`;
+            const flip = i % 2 === 1;
             return (
               <motion.div
                 key={p.slug}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  delay: i * 0.08,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className={span}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link
                   href={`/projects/${p.slug}`}
-                  className="group relative block rounded-[24px] overflow-hidden border border-line-strong bg-card hover:border-fg transition-colors"
+                  className="group grid md:grid-cols-2 gap-8 md:gap-14 items-center"
                 >
                   {/* Cover */}
-                  <div className="relative h-64 md:h-80 overflow-hidden bg-[#1a1410]">
+                  <div
+                    className={`relative overflow-hidden rounded-[24px] aspect-[4/3] ${
+                      flip ? "md:order-2" : ""
+                    }`}
+                    style={{ backgroundColor: accentColor }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={fallback}
+                      src={`/projects/${p.slug}/01.png`}
                       alt={p.name}
-                      className="absolute inset-0 w-full h-full object-cover [filter:grayscale(1)_brightness(0.85)_contrast(1.25)] group-hover:[filter:none] transition-[filter] duration-700"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.display =
-                          "none";
+                        (e.currentTarget as HTMLImageElement).style.opacity =
+                          "0";
                       }}
                     />
-                    {/* Accent tint */}
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 mix-blend-multiply opacity-80 group-hover:opacity-0 transition-opacity duration-700"
-                      style={{ backgroundColor: accentColor }}
-                    />
-                    {/* Legibility scrim — top + bottom */}
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/75 via-black/10 to-black/40"
-                    />
-                    <div className="absolute inset-0 grain opacity-50 pointer-events-none" />
+                  </div>
 
-                    {/* Top-left meta */}
-                    <div className="absolute top-4 left-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-[#f5f0e6]">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full"
-                        style={{ backgroundColor: accentColor }}
-                      />
-                      {String(i + 1).padStart(2, "0")} / {p.year}
+                  {/* Text */}
+                  <div className={flip ? "md:order-1" : ""}>
+                    <div className="flex items-baseline gap-4 mb-4 text-fg-soft">
+                      <span className="text-sm">{p.year}</span>
+                      <span className="w-1 h-1 rounded-full bg-fg-mute" />
+                      <span className="text-sm">
+                        {p.platforms.join(" · ")}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-fg-mute" />
+                      <span className="text-sm">
+                        {ui.project.statusLabels[p.status][lang]}
+                      </span>
                     </div>
-                    {/* Top-right status */}
-                    <div className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.25em] text-[#f5f0e6]">
-                      {ui.project.statusLabels[p.status][lang]}
-                    </div>
-
-                    {/* Bottom name */}
                     <h3
-                      className="absolute bottom-4 left-4 right-4 font-display leading-[0.85] tracking-tight text-[#f5f0e6] truncate"
-                      style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)" }}
+                      className="font-display leading-[0.9] tracking-tight"
+                      style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
                     >
                       {p.name}
                     </h3>
-                  </div>
-
-                  {/* Meta grid */}
-                  <div className="grid grid-cols-12 border-t border-line">
-                    <div className="col-span-12 md:col-span-8 p-5 md:p-6 md:border-r border-line border-b md:border-b-0">
-                      <p className="font-display italic text-lg md:text-2xl leading-tight max-w-xl">
-                        {p.tagline[lang]}
-                      </p>
-                    </div>
-                    <div className="col-span-12 md:col-span-4 p-5 md:p-6 flex flex-col gap-3">
-                      <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-                        {ui.project.platforms[lang]}
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.platforms.map((pl) => (
-                          <span
-                            key={pl}
-                            className="font-mono text-[10px] uppercase tracking-widest px-2 py-1 border border-line"
-                          >
-                            {pl}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Footer row */}
-                  <div className="grid grid-cols-12 border-t border-line">
-                    <div className="col-span-12 md:col-span-9 p-4 md:p-5 md:border-r border-line border-b md:border-b-0 flex flex-wrap gap-x-4 gap-y-1">
-                      {p.stack.slice(0, 5).map((s) => (
-                        <span
-                          key={s}
-                          className="font-mono text-[10px] uppercase tracking-widest text-fg-mute"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="col-span-12 md:col-span-3 p-4 md:p-5 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.25em]">
-                      <span>{ui.work.seeCase[lang]}</span>
+                    <p className="mt-4 font-display italic text-xl md:text-2xl text-fg-soft leading-tight max-w-md">
+                      {p.tagline[lang]}
+                    </p>
+                    <span className="mt-7 inline-flex items-center gap-2 text-base font-medium border-b-2 border-transparent group-hover:border-fg transition-colors">
+                      {lang === "en"
+                        ? `See how I built ${p.name}`
+                        : `Scopri come ho fatto ${p.name}`}
                       <ArrowUpRight
-                        size={14}
+                        size={18}
                         className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       />
-                    </div>
+                    </span>
                   </div>
                 </Link>
               </motion.div>
@@ -274,51 +163,27 @@ export default function HomePage() {
       </section>
 
       {/* STATS */}
-      <section className="px-4 md:px-6 py-16 md:py-24">
-        <div className="rounded-[28px] border border-line-strong bg-card overflow-hidden">
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute px-6 md:px-8 py-4 border-b border-line">
-            ✦ {ui.stats.eyebrow[lang]}
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {ui.stats.items[lang].map((s, i) => (
+      <section className="px-4 md:px-6 py-20 md:py-28">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 border-y border-line py-10 md:py-14">
+          {ui.stats.items[lang].map((s) => (
+            <div key={s.k}>
               <div
-                key={s.k}
-                className={`p-6 md:p-8 ${i < 3 ? "md:border-r" : ""} ${i < 2 ? "border-b md:border-b-0" : ""} border-line`}
+                className="font-display leading-none"
+                style={{ fontSize: "clamp(2.6rem, 5vw, 4rem)" }}
               >
-                <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute mb-3">
-                  {s.k}
-                </div>
-                <div
-                  className="font-display leading-none"
-                  style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
-                >
-                  {s.v}
-                </div>
+                {s.v}
               </div>
-            ))}
-          </div>
+              <div className="mt-2 text-sm text-fg-soft">{s.k}</div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="px-4 md:px-6 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
-          <div className="md:col-span-5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute mb-3">
-              ✦ {ui.about.eyebrow[lang]}
-            </div>
-            <h2
-              className="font-display leading-[0.9] tracking-tight"
-              style={{ fontSize: "clamp(2.4rem, 5vw, 4.4rem)" }}
-            >
-              {ui.about.title[lang]}
-            </h2>
-          </div>
-          <div className="md:col-span-7 md:pt-2">
-            <p className="text-fg-soft text-lg leading-relaxed mb-8">
-              {ui.about.body[lang]}
-            </p>
-            <div className="aspect-[4/5] md:aspect-[5/3] rounded-[24px] border border-line-strong overflow-hidden bg-bg-alt grain relative">
+      {/* ABOUT — new layout */}
+      <section id="about" className="px-4 md:px-6 py-12 md:py-20">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-5 lg:col-span-4">
+            <div className="aspect-[4/5] rounded-[24px] overflow-hidden bg-bg-alt relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/me.jpg"
@@ -330,71 +195,66 @@ export default function HomePage() {
               />
             </div>
           </div>
+          <div className="md:col-span-7 lg:col-span-8">
+            <h2
+              className="font-display leading-[1.02] tracking-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)" }}
+            >
+              {ui.about.title[lang]}
+            </h2>
+            <p className="mt-7 text-lg text-fg-soft leading-relaxed max-w-2xl">
+              {ui.about.body[lang]}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section className="px-4 md:px-6 pb-16 md:pb-24">
-        <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute mb-3">
-          ✦ {ui.skills.eyebrow[lang]}
-        </div>
+      {/* SKILLS — plain, not link-like */}
+      <section className="px-4 md:px-6 py-12 md:py-20">
         <h2
-          className="font-display leading-[0.9] tracking-tight mb-10"
-          style={{ fontSize: "clamp(2.4rem, 5vw, 4.4rem)" }}
+          className="font-display leading-[0.95] tracking-tight mb-10 md:mb-14"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)" }}
         >
           {ui.skills.title[lang]}
         </h2>
-        <div className="border-t border-line">
-          {ui.skills.items.map((s, i) => (
-            <motion.div
-              key={s.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="grid grid-cols-12 gap-4 md:gap-8 border-b border-line py-5 md:py-7 hover:bg-bg-alt transition-colors group"
-            >
-              <span className="col-span-2 md:col-span-1 font-mono text-xs text-fg-mute pt-1">
-                {s.id}
-              </span>
-              <span className="col-span-10 md:col-span-4 font-display text-2xl md:text-3xl leading-none">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+          {ui.skills.items.map((s) => (
+            <div key={s.id}>
+              <h3 className="font-display text-2xl md:text-3xl leading-none">
                 {s.name}
-              </span>
-              <span className="col-span-12 md:col-span-7 text-fg-soft leading-relaxed">
+              </h3>
+              <p className="mt-3 text-fg-soft leading-relaxed">
                 {s.desc[lang]}
-              </span>
-            </motion.div>
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
       {/* EXPERIENCE */}
-      <section className="px-4 md:px-6 pb-16 md:pb-24">
-        <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute mb-3">
-          ✦ {ui.experience.eyebrow[lang]}
-        </div>
+      <section className="px-4 md:px-6 py-12 md:py-20">
         <h2
-          className="font-display leading-[0.9] tracking-tight mb-10"
-          style={{ fontSize: "clamp(2.4rem, 5vw, 4.4rem)" }}
+          className="font-display leading-[0.95] tracking-tight mb-8 md:mb-12"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)" }}
         >
           {ui.experience.title[lang]}
         </h2>
-        <div className="border-t border-line">
+        <div>
           {ui.experience.items.map((exp, i) => (
             <div
               key={i}
-              className="grid grid-cols-12 gap-4 md:gap-8 border-b border-line py-5 md:py-7 hover:bg-bg-alt transition-colors"
+              className="grid grid-cols-12 gap-4 md:gap-8 border-t border-line py-6 md:py-8 items-baseline"
             >
               <span className="col-span-12 md:col-span-5 font-display text-2xl md:text-3xl leading-none">
                 {exp.company}
               </span>
-              <span className="col-span-6 md:col-span-3 font-mono text-xs uppercase tracking-widest text-fg-mute pt-2">
+              <span className="col-span-6 md:col-span-3 text-fg-soft">
                 {exp.period[lang]}
               </span>
-              <span className="col-span-6 md:col-span-3 text-fg-soft pt-2">
+              <span className="col-span-6 md:col-span-3 text-fg-soft">
                 {exp.role[lang]}
               </span>
-              <span className="col-span-12 md:col-span-1 font-mono text-xs uppercase tracking-widest text-fg-mute pt-2 md:text-right">
+              <span className="col-span-12 md:col-span-1 text-fg-mute md:text-right">
                 {exp.location}
               </span>
             </div>
@@ -402,117 +262,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CONTACT — Swiss accent block */}
-      <section id="contact" className="px-4 md:px-6 pb-6">
-        <article
-          className="relative rounded-[28px] overflow-hidden border-2 grain text-[#1a1410]"
-          style={{ backgroundColor: "#e8331a", borderColor: "#1a1410" }}
+      {/* CONTACT */}
+      <section id="contact" className="px-4 md:px-6 pt-12 md:pt-24 pb-16">
+        <h2
+          className="font-display leading-[0.9] tracking-tight"
+          style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
         >
-          {/* Top meta bar */}
-          <div
-            className="grid grid-cols-12 border-b-2"
-            style={{ borderColor: "#1a1410" }}
-          >
-            <div className="col-span-6 p-4 md:p-5 font-mono text-[10px] uppercase tracking-[0.25em]">
-              ✦ {ui.contact.eyebrow[lang]}
-            </div>
-            <div
-              className="col-span-6 p-4 md:p-5 border-l-2 font-mono text-[10px] uppercase tracking-[0.25em] text-right"
-              style={{ borderColor: "#1a1410" }}
-            >
-              {new Date().getFullYear()} · Naples
-            </div>
-          </div>
+          {ui.contact.title[lang]}
+        </h2>
+        <p className="mt-6 text-lg md:text-xl text-fg-soft max-w-xl leading-relaxed">
+          {ui.contact.subtitle[lang]}
+        </p>
 
-          {/* Title */}
-          <div
-            className="p-6 md:p-12 lg:p-16 border-b-2"
-            style={{ borderColor: "#1a1410" }}
-          >
-            <h2
-              className="font-display leading-[0.85] tracking-tight"
-              style={{ fontSize: "clamp(3rem, 11vw, 11rem)" }}
-            >
-              {ui.contact.title[lang]}
-            </h2>
-            <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed">
-              {ui.contact.subtitle[lang]}
-            </p>
-          </div>
+        <a
+          href={`mailto:${ui.contact.cta[lang]}`}
+          className="group mt-10 inline-flex items-center gap-3 font-display italic break-all hover:text-[#ff5b1f] transition-colors"
+          style={{ fontSize: "clamp(1.6rem, 5vw, 3.5rem)" }}
+        >
+          {ui.contact.cta[lang]}
+          <ArrowUpRight
+            size={36}
+            className="shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          />
+        </a>
 
-          {/* Email + socials grid */}
-          <div className="grid grid-cols-12">
+        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          {[
+            {
+              href: "https://www.linkedin.com/in/gianluca-auriemma-b1b65429b",
+              icon: Linkedin,
+              label: "LinkedIn",
+            },
+            {
+              href: "https://github.com/gianlucaauriemma",
+              icon: Github,
+              label: "GitHub",
+            },
+            {
+              href: "https://bsky.app/profile/gianlucaauriemma.bsky.social",
+              icon: SiBluesky,
+              label: "Bluesky",
+            },
+          ].map(({ href, icon: Icon, label }) => (
             <a
-              href={`mailto:${ui.contact.cta[lang]}`}
-              className="col-span-12 md:col-span-8 p-6 md:p-12 group flex items-center justify-between gap-4 hover:bg-[#1a1410] hover:text-[#e8331a] transition-colors"
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-fg-soft hover:text-fg transition-colors"
             >
-              <span
-                className="font-display italic break-all"
-                style={{ fontSize: "clamp(1.4rem, 4vw, 2.8rem)" }}
-              >
-                {ui.contact.cta[lang]}
-              </span>
-              <ArrowUpRight
-                size={32}
-                className="shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
+              <Icon size={16} /> {label}
             </a>
-
-            <div
-              className="col-span-12 md:col-span-4 grid grid-cols-2 md:grid-cols-1 border-t-2 md:border-t-0 md:border-l-2"
-              style={{ borderColor: "#1a1410" }}
-            >
-              {[
-                {
-                  href: "https://www.linkedin.com/in/gianluca-auriemma-b1b65429b",
-                  icon: Linkedin,
-                  label: "LinkedIn",
-                },
-                {
-                  href: "https://github.com/gianlucaauriemma",
-                  icon: Github,
-                  label: "GitHub",
-                },
-                {
-                  href: "https://bsky.app/profile/gianlucaauriemma.bsky.social",
-                  icon: SiBluesky,
-                  label: "Bluesky",
-                },
-                {
-                  href: "mailto:gianluca.auriemma4@gmail.com",
-                  icon: Mail,
-                  label: "Email",
-                },
-              ].map(({ href, icon: Icon, label }, i) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-4 md:p-5 flex items-center justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.25em] hover:bg-[#1a1410] hover:text-[#e8331a] transition-colors ${
-                    i % 2 === 1 ? "border-l-2 md:border-l-0" : ""
-                  } ${i > 0 ? "md:border-t-2" : ""} ${
-                    i > 1 ? "border-t-2 md:border-t-2" : ""
-                  }`}
-                  style={{ borderColor: "#1a1410" }}
-                >
-                  <span className="inline-flex items-center gap-2">
-                    <Icon size={14} /> {label}
-                  </span>
-                  <ArrowUpRight size={12} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </article>
+          ))}
+        </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="px-4 md:px-6 py-8 flex flex-col md:flex-row gap-3 md:items-center md:justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-fg-mute">
-        <span>
-          © {new Date().getFullYear()} Gianluca Auriemma · All rights reserved
-        </span>
-        <span>Made in Naples · Coffee fueled</span>
+      <footer className="px-4 md:px-6 py-8 border-t border-line flex flex-col md:flex-row gap-2 md:items-center md:justify-between text-sm text-fg-mute">
+        <span>© {new Date().getFullYear()} Gianluca Auriemma</span>
+        <span>Naples, Italy</span>
       </footer>
     </main>
   );

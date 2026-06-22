@@ -22,8 +22,13 @@ export type Project = {
   };
   cover: string;
   accent: "orange" | "red" | "yellow" | "magenta";
+  role: LocalizedString;
+  timeframe: LocalizedString;
   shortDescription: LocalizedString;
   longDescription: LocalizedString;
+  problem: LocalizedString;
+  process: LocalizedString;
+  solution: LocalizedString;
   features: LocalizedArray;
   steps?: LocalizedArray;
   requirements?: LocalizedArray;
@@ -48,9 +53,26 @@ export const projects: Project[] = [
     },
     cover: "/projects/betteraudio/cover.png",
     accent: "orange",
+    role: {
+      en: "Solo — concept, design, Swift, App Store",
+      it: "Da solo — concept, design, Swift, App Store",
+    },
+    timeframe: { en: "~3 weeks", it: "~3 settimane" },
     shortDescription: {
-      en: "Turn your iPhone or iPad into an acoustic measurement tool. Scan the room with LiDAR, measure noise with the mic, and place your speakers exactly where they should be.",
-      it: "Trasforma iPhone o iPad in uno strumento di misurazione acustica. Scansiona la stanza con il LiDAR, misura il rumore con il microfono e posiziona i diffusori esattamente dove dovrebbero stare.",
+      en: "Scan your room with LiDAR and get the exact spots to put your speakers.",
+      it: "Scansiona la stanza col LiDAR e scopri dove mettere esattamente i diffusori.",
+    },
+    problem: {
+      en: "Most of what you hear from a pair of speakers is the room, not the speakers. Measuring it properly takes a calibrated mic, software and a day of work almost nobody will do.",
+      it: "Quello che senti dai diffusori è in gran parte la stanza, non i diffusori. Misurarla come si deve richiede un microfono calibrato, software e una giornata di lavoro che quasi nessuno farà.",
+    },
+    process: {
+      en: "I already knew RoomPlan and LiDAR from earlier experiments, so the hard part — turning a 3D scan into speaker geometry — came together fast. A weekend for the math, two weeks to make it feel like a real instrument.",
+      it: "Conoscevo già RoomPlan e il LiDAR da esperimenti precedenti, così la parte difficile — trasformare una scansione 3D in geometria dei diffusori — è venuta in fretta. Un weekend per i calcoli, due settimane per farlo sembrare uno strumento vero.",
+    },
+    solution: {
+      en: "Scan, measure the noise, get speaker positions and first-reflection points in minutes. Everything runs on device, and it's free.",
+      it: "Scansiona, misura il rumore, ottieni posizioni dei diffusori e punti di prima riflessione in pochi minuti. Tutto sul dispositivo, e gratis.",
     },
     longDescription: {
       en: "Most of what you hear from a pair of speakers is your room, not the speakers. A 5-degree turn, twenty centimeters from a wall, the wrong seat position — any of these will smear imaging, exaggerate bass, and kill detail. Studios spend thousands on treatment for a reason. BetterAudio gives you the same starting point in a few minutes, for free. The scan and the audio analysis run entirely on device. No room data, no audio, and no measurements ever leave your iPhone.",
@@ -127,9 +149,26 @@ export const projects: Project[] = [
     },
     cover: "/projects/filmdirector/cover.png",
     accent: "red",
+    role: {
+      en: "Solo — design, Swift, watchOS, App Store",
+      it: "Da solo — design, Swift, watchOS, App Store",
+    },
+    timeframe: { en: "~4 weeks", it: "~4 settimane" },
     shortDescription: {
-      en: "Pro cine camera for iPhone. Full manual control, cinematic video, custom presets, Apple Watch companion. No subscription, no compromise.",
-      it: "Cine camera professionale per iPhone. Controllo manuale completo, video cinematografico, preset personalizzati, companion Apple Watch. Senza abbonamento, senza compromessi.",
+      en: "Full manual control over your iPhone camera, with an Apple Watch remote. No subscription.",
+      it: "Controllo manuale totale sulla fotocamera dell'iPhone, con telecomando Apple Watch. Senza abbonamento.",
+    },
+    problem: {
+      en: "iPhone cameras are great until you want manual control. The pro apps that give it to you lock the basics behind a subscription.",
+      it: "Le fotocamere iPhone sono ottime finché non vuoi il controllo manuale. Le app pro che te lo danno mettono le basi dietro un abbonamento.",
+    },
+    process: {
+      en: "I'd built a camera pipeline before, so I wasn't starting from zero. Most of the time went into the HUD and the Watch companion — making full manual control feel calm instead of cluttered.",
+      it: "Avevo già costruito una pipeline per la fotocamera, quindi non partivo da zero. Gran parte del tempo è andata nell'HUD e nel companion Watch — far sembrare il controllo manuale calmo invece che affollato.",
+    },
+    solution: {
+      en: "Manual ISO, shutter, focus, white balance and zoom, a Watch remote, one-time unlock. Shoots like a real camera.",
+      it: "ISO, shutter, fuoco, bilanciamento del bianco e zoom manuali, telecomando Watch, sblocco una tantum. Scatta come una fotocamera vera.",
     },
     longDescription: {
       en: "FilmDirector turns your iPhone into a professional cine camera. Built for filmmakers, content creators and photographers who want full manual control with zero compromises. ISO across the sensor's full supported range, logarithmic shutter slider, exposure compensation, manual focus with tap-to-focus, white balance with Kelvin temperature and tint, continuous zoom with shortcuts to real optical focal lengths.",
@@ -200,9 +239,26 @@ export const projects: Project[] = [
     },
     cover: "/projects/trustme/cover.png",
     accent: "magenta",
+    role: {
+      en: "Solo — design, Swift, in progress",
+      it: "Da solo — design, Swift, in sviluppo",
+    },
+    timeframe: { en: "~2 weeks of nights", it: "~2 settimane di serate" },
     shortDescription: {
-      en: "macOS file analysis tool. Drop a file in, get a verdict — Safe, Suspicious, or Dangerous — before you ever double-click it.",
-      it: "Strumento di analisi file per macOS. Trascini un file, ottieni un verdetto — Safe, Suspicious, Dangerous — prima ancora di farci doppio clic.",
+      en: "Drop a file on your Mac and know if it's safe — before you open it.",
+      it: "Trascini un file sul Mac e sai se è sicuro — prima di aprirlo.",
+    },
+    problem: {
+      en: "You download a file and have no idea what it actually is until you open it — which is exactly when it's too late.",
+      it: "Scarichi un file e non hai idea di cosa sia davvero finché non lo apri — cioè quando è già troppo tardi.",
+    },
+    process: {
+      en: "Static analysis was quick to wire up. The interesting part was the disposable Linux VM on Virtualization.framework — once that clicked, the rest was UI.",
+      it: "L'analisi statica è stata veloce da mettere su. La parte interessante è stata la VM Linux usa-e-getta su Virtualization.framework — una volta capita quella, il resto era UI.",
+    },
+    solution: {
+      en: "Drop a file, get a Safe / Suspicious / Dangerous verdict in seconds, or run a deep scan in a throwaway VM. Nothing leaves your Mac.",
+      it: "Trascini un file, ottieni un verdetto Safe / Suspicious / Dangerous in pochi secondi, o lanci un deep scan in una VM usa-e-getta. Niente lascia il Mac.",
     },
     longDescription: {
       en: "TrustMe is a macOS file analysis tool that tells you whether a file is safe to open — before you open it. Drop a file into the window (or pick from the menu bar) and TrustMe runs static analysis on real content (not just the extension), gives an instant verdict, and optionally runs a deep scan inside a disposable Linux VM powered by Apple Virtualization.framework. Built for developers, security researchers, and curious users. Not a replacement for antivirus — a fast triage tool.",
@@ -261,10 +317,11 @@ export const ui = {
       it: "Napoli, Italia — aperto a opportunità ovunque",
     },
     bio: {
-      en: "I design and ship native Apple apps with Swift and SwiftUI. Web in my back pocket. I care about details that nobody notices until they're missing.",
-      it: "Progetto e pubblico app native Apple con Swift e SwiftUI. Il web nella tasca posteriore. Mi prendo cura dei dettagli che nessuno nota finché non mancano.",
+      en: "I design and ship native Apple apps — solo, end to end, fast. Three on the App Store this year. The hard part is usually finding the idea; I'm quick at the rest.",
+      it: "Progetto e pubblico app native Apple — da solo, dall'inizio alla fine, in fretta. Tre sull'App Store quest'anno. La parte difficile è trovare l'idea; sul resto sono veloce.",
     },
-    sayHi: { en: "Say hello", it: "Scrivimi" },
+    seeWork: { en: "See the apps", it: "Guarda le app" },
+    sayHi: { en: "Email me", it: "Scrivimi una mail" },
     cv: { en: "Download CV", it: "Scarica CV" },
   },
   helpYou: {
@@ -287,43 +344,39 @@ export const ui = {
     },
   },
   work: {
-    eyebrow: { en: "Selected Work", it: "Lavori Selezionati" },
     title: {
-      en: "Things I've built lately.",
-      it: "Cose costruite di recente.",
+      en: "Three apps, shipped solo.",
+      it: "Tre app, pubblicate da solo.",
     },
     subtitle: {
-      en: "iOS, iPadOS, macOS. Each project is a self-contained idea, shipped on the App Store or in active development.",
-      it: "iOS, iPadOS, macOS. Ogni progetto è un'idea autonoma, pubblicata sull'App Store o in sviluppo attivo.",
+      en: "Each one from idea to App Store in a few weeks. Tap any to read how it came together.",
+      it: "Ognuna dall'idea all'App Store in poche settimane. Tocca per leggere com'è nata.",
     },
-    seeCase: { en: "Read case study", it: "Leggi case study" },
   },
   stats: {
-    eyebrow: { en: "By the numbers", it: "In numeri" },
     items: {
       en: [
-        { k: "Apps shipped", v: "2" },
-        { k: "In progress", v: "1" },
-        { k: "Years coding", v: "3+" },
+        { k: "On the App Store", v: "3" },
+        { k: "Avg. idea → ship", v: "3 wks" },
+        { k: "Team size", v: "1" },
         { k: "Based in", v: "Naples" },
       ],
       it: [
-        { k: "App pubblicate", v: "2" },
-        { k: "In sviluppo", v: "1" },
-        { k: "Anni di codice", v: "3+" },
+        { k: "Sull'App Store", v: "3" },
+        { k: "Media idea → store", v: "3 set" },
+        { k: "Persone nel team", v: "1" },
         { k: "Sede", v: "Napoli" },
       ],
     },
   },
   about: {
-    eyebrow: { en: "About", it: "Chi sono" },
     title: {
-      en: "Two years of mobile craft, sharp interfaces, and relentless development discipline.",
-      it: "Due anni di mobile, interfacce nette e disciplina senza compromessi.",
+      en: "I'm Gianluca. I build iOS, iPadOS and macOS apps on my own — and I ship them fast.",
+      it: "Sono Gianluca. Costruisco app iOS, iPadOS e macOS da solo — e le pubblico in fretta.",
     },
     body: {
-      en: "Enthusiastic iOS & Frontend Developer with a strong foundation in Swift, UIKit, and modern web frameworks. I combine technical skills with problem-solving to contribute from concept to App Store deployment and pixel-perfect web interfaces.",
-      it: "Sviluppatore iOS e Frontend appassionato, con basi solide in Swift, UIKit e i moderni framework web. Unisco competenze tecniche e problem-solving per contribuire dal concept al rilascio in App Store e a interfacce web pixel-perfect.",
+      en: "I work in Swift and SwiftUI, with web (React, Vue, Angular) when a project needs it. I'm comfortable owning a whole product: the idea, the design, the code, the App Store listing. What I'm proud of isn't the framework list — it's how little time it takes me to go from a rough idea to something real you can download.",
+      it: "Lavoro in Swift e SwiftUI, con il web (React, Vue, Angular) quando serve. Mi trovo a mio agio a possedere un prodotto intero: l'idea, il design, il codice, la pubblicazione. Quello di cui vado fiero non è la lista di framework — è quanto poco tempo mi serve per passare da un'idea grezza a qualcosa di reale che puoi scaricare.",
     },
   },
   skills: {
@@ -418,19 +471,24 @@ export const ui = {
   },
   project: {
     overview: { en: "Overview", it: "Panoramica" },
+    problem: { en: "The problem", it: "Il problema" },
+    process: { en: "How I built it", it: "Come l'ho fatta" },
+    solution: { en: "What it does", it: "Cosa fa" },
     features: { en: "Highlights", it: "Punti chiave" },
     steps: { en: "How it works", it: "Come funziona" },
     requirements: { en: "Requirements", it: "Requisiti" },
-    stack: { en: "Stack", it: "Stack" },
+    stack: { en: "Built with", it: "Costruita con" },
     platforms: { en: "Platforms", it: "Piattaforme" },
+    role: { en: "Role", it: "Ruolo" },
+    timeframe: { en: "Time to ship", it: "Tempo di sviluppo" },
     year: { en: "Year", it: "Anno" },
     status: { en: "Status", it: "Stato" },
-    backToWork: { en: "Back to all work", it: "Torna ai lavori" },
+    backToWork: { en: "All apps", it: "Tutte le app" },
     nextProject: { en: "Next project", it: "Prossimo progetto" },
-    visitAppStore: { en: "View on App Store", it: "Vedi su App Store" },
+    visitAppStore: { en: "Download free on the App Store", it: "Scarica gratis sull'App Store" },
     joinTestflight: {
-      en: "Join TestFlight beta",
-      it: "Entra nella beta TestFlight",
+      en: "Try the TestFlight beta",
+      it: "Prova la beta TestFlight",
     },
     statusLabels: {
       shipped: { en: "Shipped", it: "Pubblicato" },
